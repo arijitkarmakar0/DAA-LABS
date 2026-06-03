@@ -1,0 +1,107 @@
+🔎 Initial Array
+Code
+[38, 27, 43, 3, 9, 82, 10]
+Step 1: Divide
+Left = 0, Right = 6 → Mid = 3
+
+Split into two halves:
+
+Left half: [38, 27, 43, 3]
+
+Right half: [9, 82, 10]
+
+Step 2: Recursively Divide Left Half [38, 27, 43, 3]
+Left = 0, Right = 3 → Mid = 1
+
+Split into:
+
+[38, 27]
+
+[43, 3]
+
+Further divide [38, 27]
+Left = 0, Right = 1 → Mid = 0
+
+Split into [38] and [27]
+
+Merge → [27, 38]
+
+Further divide [43, 3]
+Left = 2, Right = 3 → Mid = 2
+
+Split into [43] and [3]
+
+Merge → [3, 43]
+
+Merge [27, 38] and [3, 43]
+Compare elements:
+
+27 vs 3 → pick 3
+
+27 vs 43 → pick 27
+
+38 vs 43 → pick 38
+
+Remaining → 43
+
+Result → [3, 27, 38, 43]
+
+Step 3: Recursively Divide Right Half [9, 82, 10]
+Left = 4, Right = 6 → Mid = 5
+
+Split into:
+
+[9, 82]
+
+[10]
+
+Further divide [9, 82]
+Left = 4, Right = 5 → Mid = 4
+
+Split into [9] and [82]
+
+Merge → [9, 82]
+
+Merge [9, 82] and [10]
+Compare elements:
+
+9 vs 10 → pick 9
+
+82 vs 10 → pick 10
+
+Remaining → 82
+
+Result → [9, 10, 82]
+
+Step 4: Final Merge
+Merge [3, 27, 38, 43] and [9, 10, 82]
+
+Compare elements:
+
+3 vs 9 → pick 3
+
+27 vs 9 → pick 9
+
+27 vs 10 → pick 10
+
+27 vs 82 → pick 27
+
+38 vs 82 → pick 38
+
+43 vs 82 → pick 43
+
+Remaining → 82
+
+Result → [3, 9, 10, 27, 38, 43, 82]
+
+✅ Final Sorted Array
+Code
+[3, 9, 10, 27, 38, 43, 82]
+Key Observations
+Merge Sort keeps splitting until single elements remain.
+
+Then it merges back in sorted order.
+
+Time complexity: O(n log n)
+
+Space complexity: O(n) (due to temporary arrays)
